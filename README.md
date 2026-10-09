@@ -4,6 +4,28 @@ A simple, fast, and intelligent **Q&A ChatBot** built with **Groq**, **LangChain
 
 ---
 
+## 🎯 Problem Statement (What Problem Are We Solving?)
+
+Building production-grade LLM applications involves several critical challenges that this project addresses:
+
+1. **The "Black Box" Observability Problem**:
+   - **Challenge:** LLM pipelines are difficult to debug. Developers struggle to trace prompt formatting, token consumption, latency bottlenecks, and chain failures in real-time.
+   - **Solution:** Integrated with **LangSmith Tracing** (`LANGCHAIN_TRACING_V2=true`). Every prompt, model call, latency metric, and output is captured automatically for end-to-end observability and debugging.
+
+2. **Slow Inference & Response Latency**:
+   - **Challenge:** Many cloud LLM APIs suffer from high time-to-first-token (TTFT) and slow generation speeds, hurting the user experience in conversational systems.
+   - **Solution:** Powered by **Groq's ultra-fast LPU (Language Processing Unit)** hardware, delivering blazing-fast responses using high-parameter models such as `openai/gpt-oss-120b`.
+
+3. **Loss of Context in Multi-Turn Q&A**:
+   - **Challenge:** Basic query-response scripts lack conversation continuity, treating each message independently and forgetting context.
+   - **Solution:** Built-in conversation memory (`MessagesPlaceholder` + Streamlit session state) preserves context across multiple conversation turns.
+
+4. **Friction in Testing & Comparing Models**:
+   - **Challenge:** Experimenting with different models and inspecting traces often requires modifying code manually each time.
+   - **Solution:** An intuitive **Streamlit** UI with on-the-fly model switching, clear chat controls, and instant trace generation.
+
+---
+
 ## 🚀 Features
 
 - 💬 **Interactive Chat UI** — Native Streamlit chat interface (`st.chat_message`)
